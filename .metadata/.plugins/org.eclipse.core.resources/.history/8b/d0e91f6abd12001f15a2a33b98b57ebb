@@ -1,0 +1,48 @@
+package com.example.FirstProject.service;
+
+import java.util.ArrayList;
+
+import org.springframework.stereotype.Service;
+
+import com.example.FirstProject.model.Person;
+@Service
+public class FirstService {
+	ArrayList<Person> personList = new ArrayList<Person>();
+	
+	public ArrayList<Person> getPersonList() {
+		return personList;
+	}
+	public void setPersonList(ArrayList<Person> personList) {
+		this.personList = personList;
+	}
+	public String addTo(String s) {
+		return "<div>Le camion contient " + s + "</div>";
+	}
+	public String addImg(int imageNb) {
+		return "<img src='https://picsum.photos/id/"+imageNb+"/1980/500' style='max-width: 100%'>";
+	}
+	public String style() {
+		return "<style>"
+				+ "*{margin: 0; box-sizing:border-box; font-family: 'Trebuchet Sans MS'; text-decoration:none;}"
+				+ "a{color: gold;"
+				+ "</style>";
+	}
+	/**/
+	public String getFormattedBirthDate(Person person) {
+		//@json.format(pattern = "yyyy-MM-dd");
+		Date formattedBirthDate= person.birthDate;
+		return formattedBirthDate;
+	}
+	/**/
+	public ArrayList<Person> addToList(Person personne) {
+		personList.add(personne);
+		return personList;
+	}
+	public String getAllPerson() {
+		String resume = "";
+		for(Person personne : personList) {
+			resume += "<p>" + personne.toString() + "</p>";
+		}
+		return resume;
+	}
+}

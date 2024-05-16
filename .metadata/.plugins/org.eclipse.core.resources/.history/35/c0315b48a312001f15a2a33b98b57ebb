@@ -1,0 +1,11 @@
+package com.example.FirstProject.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+public class counterController {
+	@GetMapping("/counter")
+	public String count(@RequestParam int chiffre) {
+		return accountingService.counter(chiffre);
+	}
+}

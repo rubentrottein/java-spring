@@ -1,0 +1,11 @@
+package com.example.FirstProject.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class AccountingService {
+	@Autowired
+	AccountingService counter;
+	public static int counter(int chiffre) {
+		return chiffre++;
+	}
+}

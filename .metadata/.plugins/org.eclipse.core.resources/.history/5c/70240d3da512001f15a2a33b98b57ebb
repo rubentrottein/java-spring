@@ -1,0 +1,11 @@
+package com.example.FirstProject.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class AccountingService {
+	public int counter(int chiffre) {
+		int newChiffre = chiffre++;
+		return "<h1>Service Comptabilité</h1><p><i>" + newChiffre + "</i>";
+	}
+}

@@ -1,0 +1,5 @@
+package com.example.FirstProject.repositories;
+
+public interface PersonRepository extends CrudRepository<Personne, Long>{
+
+}

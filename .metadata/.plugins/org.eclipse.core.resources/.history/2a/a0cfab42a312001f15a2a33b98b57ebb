@@ -1,0 +1,5 @@
+package com.example.FirstProject.service;
+
+public class AccountingService {
+
+}

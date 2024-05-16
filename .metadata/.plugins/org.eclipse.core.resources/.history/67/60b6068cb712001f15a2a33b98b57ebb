@@ -1,0 +1,48 @@
+package com.example.FirstProject.model;
+
+import java.util.Date;
+
+public class Person {
+	int age;
+	String lastName;
+	String firstName;
+	Date birthDate;
+	public Person(int age, String lastName, String firstName, Date birthDate) {
+		super();
+		this.age = age;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		
+		@json.format(pattern = "yyyy-MM-dd");
+		this.birthDate = birthDate;
+	}
+	@Override
+	public String toString() {
+		return "Person [age=" + age + ", lastName=" + lastName + ", firstName=" + firstName + ", birthDate=" + birthDate
+				+ "]";
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public Date getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+}

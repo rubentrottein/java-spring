@@ -1,0 +1,39 @@
+package com.example.FirstProject.service;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+import org.springframework.stereotype.Service;
+
+import com.example.FirstProject.model.Person;
+
+@Service
+public class PersonService {
+	Person john = new Person (19, "John", "Doe", null);
+	ArrayList<Person> personList = new ArrayList<Person>();
+	
+	public ArrayList<Person> getPersonList() {
+		return personList;
+	}
+	public void setPersonList(ArrayList<Person> personList) {
+		this.personList = personList;
+	}
+
+	/**
+	public Date getFormattedBirthDate(Person person) {
+		Date formattedBirthDate= person.getBirthDate();
+		return formattedBirthDate;
+	}
+	/**/
+	public String addToList(Person personne) {
+		personList.add(personne);
+		return getPersonListToString();
+	}
+	public String getPersonListToString() {
+		String resume = "";
+		for(Person personne : personList) {
+			resume += "<p>" + personne.toString() + "</p>";
+		}
+		return resume;
+	}
+}

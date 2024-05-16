@@ -1,0 +1,20 @@
+package com.example.FirstProject.controller;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.FirstProject.model.Person;
+
+@RestController
+public class PersonController {
+	
+	@PostMapping("/addPerson")
+	public String addPerson(@RequestBody Person user){
+		return service.addToList(user);
+	}
+	@PostMapping("/getAllPerson")
+	public String getAllPerson(){
+		return service.getPersonListToString();
+	}
+}

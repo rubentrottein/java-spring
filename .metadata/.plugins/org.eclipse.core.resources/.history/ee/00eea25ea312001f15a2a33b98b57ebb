@@ -1,0 +1,7 @@
+package com.example.FirstProject.service;
+
+public class AccountingService {
+	public int counter(int chiffre) {
+		return chiffre++;
+	}
+}
