@@ -36,7 +36,6 @@ public class Person {
 	public int getAge() {
 		return age;
 	}
-	
 	public void setAge(int age) {
 		this.age = age;
 	}
@@ -58,10 +57,21 @@ public class Person {
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
-	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
-		return "Person [age=" + age + ", lastName=" + lastName + ", firstName=" + firstName + ", birthDate=" + birthDate
-				+ "]";
+		return "Person{" +
+				"id=" + id +
+				", age=" + age +
+				", lastName='" + lastName + '\'' +
+				", firstName='" + firstName + '\'' +
+				", birthDate=" + birthDate +
+				'}';
 	}
 }
