@@ -23,6 +23,7 @@ public class FirstController {
 				+ "<a href='/addPerson'>addPerson</a>"
 				+ "<a href='/getPerson'>getPerson</a>"
 				+ "<a href='/getAllPerson'>getAllPerson</a>"
+				+ "<a href='/firstPage'>About</a>"
 				+"</nav></header>";
 	}
 	@GetMapping("/hello")

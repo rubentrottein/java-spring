@@ -1,18 +1,30 @@
 package com.example.FirstProject.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
 public class Person {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Long id;
+	
 	int age;
 	String lastName;
 	String firstName;
-	
+
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private LocalDate birthDate;
-	
+
+	public Person() {
+	}
+
 	public Person(int age, String lastName, String firstName, LocalDate birthDate) {
 		super();
 		this.age = age;
