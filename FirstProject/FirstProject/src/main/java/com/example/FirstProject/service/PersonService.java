@@ -54,6 +54,16 @@ public class PersonService {
 			return null;
 		}
 	}
+	public Person addUser(Object result) {
+		Person personToAdd = new Person();
+
+		personToAdd.setFirstName(result.firstName);
+		personToAdd.setLastName(result.lastName);
+		personToAdd.setBirthDate(result.birthDate);
+		personToAdd.setAge(result.age);
+		return personToAdd;
+
+	}
 
 	public String display() {
 		// on peut démarrer avec un tampon vide

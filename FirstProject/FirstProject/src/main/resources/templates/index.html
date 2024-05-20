@@ -19,6 +19,12 @@
             width: 80%;
             margin: 2em auto;
         }
+        header{
+            display: flex;
+            justify-content: space-between;
+            padding: .5em ;
+            background: darkblue;
+        }
     </style>
 </head>
 <body>
@@ -30,14 +36,12 @@
     </nav>
 </header>
 <section id="hero">
+    <div th:text="${img}"></div>
     <article>
         <h2>Formateur / Concepteur / Développeur d'application</h2>
         <p class="lead">Bienvenue sur mon site personnel</p>
 
-        <form th:action="@{/getUserById}" method="get">
-            <input type="text" th:name="id" />
-            <input type="submit" th:value="Recherche"/>
-        </form>
+
     </article>
 </section>
 <section>
@@ -62,10 +66,13 @@
     </article>
     <article>
         <h3>Php</h3>
+        <p>Blog sur les jeux vidéos</p>
+        <a href="http://blog-clean/index.php?page=home">La tech dans les étoiles</a>
     </article>
     <article>
         <h3>Java</h3>
         <p>Spring Boot + ThymeLeaf</p>
+        <a href="/index">Vous y êtes</a>
     </article>
 </section>
 </body>

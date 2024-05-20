@@ -8,36 +8,67 @@
         <script src="https://kit.fontawesome.com/8c253adc76.js" crossorigin="anonymous"></script>
     </head>
     <body>
-    <header>
-        <h1>Liste des utilisateurs</h1>
-    </header>
-        <section class="container mt-5">
-            <h1 class="text-center">Liste des personnes</h1>
-            <table class="table table-info table-striped">
-                <thead class="text-center">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Prenom</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="person : ${list}">
-                    <td th:text="${person.id}"></td>
-                    <td th:text="${person.firstName}"></td>
-                    <td th:text="${person.lastName}"></td>
-                    <td th:text="${person.birthDate}"></td>
-                    <td>
-                        <button></button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    <section>
-        <h2 th:text="${id}"></h2>
-    </section>
+        <header>
+            <h1>Liste des utilisateurs</h1>
+            <nav>
+                <a href="/">Retour</a>
+            </nav>
+        </header>
+        <main>
+            <section class="container mt-5">
+                <h1 class="text-center">Liste des personnes</h1>
+                <a href="/list">Actualiser Liste</a>
+                <table class="table table-info table-striped rounded">
+                    <thead class="text-center">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prenom</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="person : ${list}">
+                            <td th:text="${person.id}"></td>
+                            <td th:text="${person.firstName}"></td>
+                            <td th:text="${person.lastName}"></td>
+                            <td th:text="${person.birthDate}"></td>
+                            <td>
+                                <button></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="container w-75 mx-auto">
+                <h2>Selectionner un utilisateur</h2>
+                <fieldset>
+                    <h3>Selection</h3>
+                    <form th:action="@{/getUserById}" method="get">
+                        <input type="text" th:name="id" placeholder="id de l'utilisateur"/>
+                        <input type="submit" th:value="Recherche"/>
+                    </form>
+                </fieldset>
+                <ul th:each="selected: ${id}">
+                    <li>id : <span th:text="${selected.id}"></span></li>
+                    <li>firstName : <span th:text="${selected.firstName}"></span></li>
+                    <li>lastName : <span th:text="${selected.lastName}"></span></li>
+                    <li>birthDate : <span th:text="${selected.birthDate}"></span></li>
+                </ul>
+            </section>
+            <!---->
+            <section>
+                <h3>Ajout d'utilisateurs</h3>
+                <form th:action="@{/addUser}" th:object="${user}" method="post">
+                    <input type="text" th:field="*{firstName}" id="firstName" />
+                    <input type="text" th:field="*{lastName}" id="lastName" />
+                    <input type="text" th:field="*{age}" id="age" />
+                    <input type="text" th:field="*{birthDate}" id="birthDate" />
+                    <input type="submit" value="Envoyer">
+                </form>
+            </section>
+            <!---->
+        </main>
     </body>
 </html>

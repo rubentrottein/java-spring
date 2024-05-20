@@ -20,10 +20,9 @@ public class FirstController {
 				+ "<h1>Site Java Spring !</h1>"
 				+ "<nav style='display:flex; justify-content: space-around; width: 50%;'>"
 				+ "<a href='/hello?name'=" + name + ">Poursuivre en tant que " + name + "</a> "
-				+ "<a href='/addPerson'>addPerson</a>"
-				+ "<a href='/getPerson'>getPerson</a>"
-				+ "<a href='/getAllPerson'>getAllPerson</a>"
-				+ "<a href='/firstPage'>About</a>"
+				+ "<a href='/addUser'>addPerson</a>"
+				+ "<a href='/list'>getAllPerson</a>"
+				+ "<a href='/index'>About</a>"
 				+"</nav></header>";
 	}
 	@GetMapping("/hello")
