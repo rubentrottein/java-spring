@@ -1,5 +1,8 @@
 package com.mistertea.festival.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,4 +22,6 @@ public class Scene {
     private Festival festival;
 
     // Liste Concerts
+    @OneToMany
+    List<Group> bandList = new ArrayList<>();
 }
