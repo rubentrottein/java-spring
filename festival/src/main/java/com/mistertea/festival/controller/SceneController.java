@@ -8,5 +8,6 @@ import com.mistertea.festival.service.SceneService;
 @Controller
 public class SceneController {
 	@Autowired
-	SceneService service;
+	SceneService service= new SceneService();
+
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Liste des Groupes</h1>
+    <nav>
+        <a href="/">Retour</a>
+    </nav>
+</header>
+<main>
+    <section id="bandList">
+        <h2>Liste des groupes</h2>
+        <article th:each="band : ${bandsList}">
+            <figure>
+                <img src="https://picsum.photos/id/13/300/300" alt="">
+                <figcaption>
+                    <h3 th:text="${band.name}"></h3>
+                    <p>Lorem Ipsum Dolor Sit Amet</p>
+                    <div class="group">
+                        <form method="GET" action="${/updateBand}">
+                            <button th:value="${band.id}" >Modifier</button>
+                        </form>
+                        <form method="GET" action="${/deleteBand}">
+                            <button th:value="${band.id}" >Supprimer</button>
+                        </form>
+                    </div>
+                </figcaption>
+            </figure>
+        </article>
+    </section>
+    <!----
+    <section>
+        <fieldset>
+            <summary><h2>Add Band</h2></summary>
+            <form action="@{/addBand}" method="POST" th:object="${band}">
+                <label for="nom">Nom du groupe</label>
+                <input type="text" th:field="*{name}" id="nom">
+                <input type="submit" value="Ajout d'un groupe">
+            </form>
+        </fieldset>
+    </section>
+    <!---->
+<img id="couverdure" src="https://mistertea.fr/selene/img/Couverdure.png" width=200 />
+<audio autoplay src="https://mistertea.fr/selene/bgm/miles-davis-blue-in-green-1959.mp3"></audio>
+</main>
+</body>
+</html>
