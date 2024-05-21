@@ -3,11 +3,18 @@ package com.example.FirstProject.controller;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import com.example.FirstProject.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.FirstProject.model.Person;
+import com.example.FirstProject.repositories.PersonRepository;
 import com.example.FirstProject.service.PersonService;
 
 @RestController
@@ -31,7 +38,7 @@ public class PersonController {
 			return "Update error";
 		}
 	}
-	
+
 	@PostMapping("/getList")
 	public ArrayList<Person> getList(){
 		return service.getPersonList();
@@ -43,8 +50,8 @@ public class PersonController {
 	}
 	@PostMapping("/getPerson")
 	public String getPerson(@RequestBody Person user){
-		
-		return  "<h3>" + user.getFirstName() 
+
+		return  "<h3>" + user.getFirstName()
 		+ " " + user.getLastName() + "</h3>"
 		+ "<i>" + user.getBirthDate() + "</i>, " + user.getAge() + "ans.";
 	}

@@ -9,10 +9,10 @@ import com.example.FirstProject.service.AccountingService;
 
 @RestController
 public class CounterController {
-	
+
 	@Autowired
 	AccountingService service;
-	
+
 	@GetMapping("/counter")
 	public String count(@RequestParam int chiffre) {
 		return "<h1>Service Comptabilité</h1>"

@@ -1,0 +1,39 @@
+
+<table>
+    <thead>
+        <tr>
+            <th> ID </th>
+            <th> Nom </th>
+            <th> Prenom </th>
+            <th> Dob </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="personne : ${listePersonne}">
+            <td><span th:text="${personne.id}"></span></td>
+            <td><span th:text="${personne.nom}"></span></td>
+            <td><span th:text="${personne.prenom}"></span></td>
+           <td><span th:text="${personne.birthday}"></span></td>
+        </tr>
+    </tbody>
+</table>
+
+<p>
+<form th:action="@{/getPersonneById}" method="get">
+    <input type="text" th:name="id"/>
+    <input type="submit" id="submitButton" th:value="Recherche"/>    
+</form>
+</p>
+
+<p>
+<form th:action="@{/addPersonne}" method="get">
+    <input type="submit" id="submitButton" th:value="Add"/>    
+</form>
+
+
+<p> 
+<form th:action="@{/updatePersonneById}" method="get">
+    <input type="text" th:name="id"/>
+    <input type="submit" id="submitButton" th:value="Update"/>    
+</form>
+</p>

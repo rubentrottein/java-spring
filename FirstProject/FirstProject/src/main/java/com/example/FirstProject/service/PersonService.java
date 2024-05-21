@@ -3,11 +3,11 @@ package com.example.FirstProject.service;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import com.example.FirstProject.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.FirstProject.model.Person;
+import com.example.FirstProject.repositories.PersonRepository;
 
 @Service
 public class PersonService {

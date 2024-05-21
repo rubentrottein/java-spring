@@ -3,6 +3,7 @@ package com.example.FirstProject.model;
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,7 +15,7 @@ public class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
-	
+
 	int age;
 	String lastName;
 	String firstName;
@@ -32,7 +33,7 @@ public class Person {
 		this.firstName = firstName;
 		this.birthDate = birthDate;
 	}
-		
+
 	public int getAge() {
 		return age;
 	}

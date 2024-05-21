@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruben Trottein</title>
+    <!--
+        <link rel="stylesheet" href="assets/css/style.css">
+        <video src="assets/media/video/aurora.mp4" autoplay muted poster="https://picsum.photos/id/50/1980/300">
+        </video>
+
+    -->
+    <style>
+        *{background: black; color: white;}
+        body{
+            margin: 0;
+        }
+        section{
+            width: 80%;
+            margin: 2em auto;
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            padding: .5em ;
+            background: darkblue;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Ruben Trottein</h1>
+    <p th:text="${firstAttribute}"></p>
+    <nav>
+        <a href="/">Retour</a>
+    </nav>
+</header>
+<section id="hero">
+    <div th:text="${img}"></div>
+    <article>
+        <h2>Formateur / Concepteur / Développeur d'application</h2>
+        <p class="lead">Bienvenue sur mon site personnel</p>
+
+
+    </article>
+</section>
+<section>
+    <h2>Projets</h2>
+    <article>
+        <h3>JavaScript</h3>
+        <p class="lead">
+            React
+        </p>
+        <a href="https://pokedex-react-ruben-t.vercel.app/">Pokédex React</a>
+        <p>
+            Vanilla
+        </p>
+        <a href="https://vanilla-pokeapi.vercel.app/">Pokédex Javascript (vanilla)</a>
+        <p>
+
+        </p>
+    </article>
+    <article>
+        <h3>CSS / Design</h3>
+        <a href="https://mistertea.fr/eshop/">Intégration d'un mockup pour un site de vente de carrelage et autres (Full HTML/CSS)</a>
+    </article>
+    <article>
+        <h3>Php</h3>
+        <p>Blog sur les jeux vidéos</p>
+        <a href="http://blog-clean/index.php?page=home">La tech dans les étoiles</a>
+    </article>
+    <article>
+        <h3>Java</h3>
+        <p>Spring Boot + ThymeLeaf</p>
+        <a href="/index">Vous y êtes</a>
+    </article>
+</section>
+</body>
+</html>

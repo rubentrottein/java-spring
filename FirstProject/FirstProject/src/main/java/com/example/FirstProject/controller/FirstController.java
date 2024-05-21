@@ -13,7 +13,7 @@ public class FirstController {
 
 	@Autowired
 	FirstService service;
-	
+
 	@GetMapping("/")
 	public String welcome(){
 		return service.style() + "<header style='background: black; color: seagreen; font-family: 'Arial'; font-weight: 100'>"
@@ -29,7 +29,7 @@ public class FirstController {
 	public String action(@RequestParam String name){
 		return "<h1>Hello World!</h1>"
 				+ "<p><i>Bienvenue " + name + "</i></p>"
-				+ service.addTo("Un Canapé!")	
+				+ service.addTo("Un Canapé!")
 				+ service.addImg(151)
 				+ "<a href='/'>Retour à l'accueil</a>";
 	}
