@@ -54,17 +54,17 @@ public class PersonService {
 			return null;
 		}
 	}
-	public Person addUser(Object result) {
+	/**/
+	public Person addPerson(Person person) {
 		Person personToAdd = new Person();
-
-		personToAdd.setFirstName(result.firstName);
-		personToAdd.setLastName(result.lastName);
-		personToAdd.setBirthDate(result.birthDate);
-		personToAdd.setAge(result.age);
+		personToAdd.setFirstName(person.getFirstName());
+		personToAdd.setLastName(person.getLastName());
+		personToAdd.setBirthDate(person.getBirthDate());
+		personToAdd.setAge(person.getAge());
 		return personToAdd;
 
 	}
-
+	/**/
 	public String display() {
 		// on peut démarrer avec un tampon vide
 		// StringBuilder builder = new StringBuilder();
