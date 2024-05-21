@@ -45,8 +45,14 @@ public class FirstThymeLeafController {
     @PostMapping("/addUser")
     public String addUser(Person person, BindingResult result, Model model) {
         model.addAttribute("user", person);
-        service.addUser(result);
-        return "list";
+        service.addPerson(person);
+        return "addUser";
+    }
+    @PostMapping("/updateUser")
+    public String addUser(Person person, Model model) {
+        model.addAttribute("userToUpdate", person);
+        service.updatePerson(person.getId(), person);
+        return "updateUser";
     }
 
     @GetMapping("/imgSrc")

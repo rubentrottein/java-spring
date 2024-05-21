@@ -35,7 +35,8 @@
                             <td th:text="${person.lastName}"></td>
                             <td th:text="${person.birthDate}"></td>
                             <td>
-                                <button></button>
+                                <a type="button" href="/updateUser?{${person.id}}">update</a>
+                                <a type="button" href="/deleteUser?{${person.id}}">delete</a>
                             </td>
                         </tr>
                     </tbody>
@@ -57,18 +58,7 @@
                     <li>birthDate : <span th:text="${selected.birthDate}"></span></li>
                 </ul>
             </section>
-            <!---->
-            <section>
-                <h3>Ajout d'utilisateurs</h3>
-                <form th:action="@{/addUser}" th:object="${user}" method="post">
-                    <input type="text" th:field="*{firstName}" id="firstName" />
-                    <input type="text" th:field="*{lastName}" id="lastName" />
-                    <input type="text" th:field="*{age}" id="age" />
-                    <input type="text" th:field="*{birthDate}" id="birthDate" />
-                    <input type="submit" value="Envoyer">
-                </form>
-            </section>
-            <!---->
+
         </main>
     </body>
 </html>
