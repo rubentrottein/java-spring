@@ -8,12 +8,15 @@ import lombok.Data;
 public class Scene {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name= "scene_id")
     private Long id;
 
+    @Column(name= "scene_name")
     private String name;
 
     @ManyToOne
-    private Festival;
+    @JoinColumn(name = "festival_id")
+    private Festival festival;
 
     // Liste Concerts
 }

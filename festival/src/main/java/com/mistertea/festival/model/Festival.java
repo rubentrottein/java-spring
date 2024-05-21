@@ -12,7 +12,7 @@ import java.util.List;
 public class Festival {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="festival_id");
+    @Column(name="festival_id")
     private Long id;
 
     private String name;
