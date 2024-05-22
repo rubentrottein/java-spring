@@ -15,7 +15,7 @@ public class BandController {
     @Autowired
     BandService service = new BandService();
 
-    @GetMapping("/displayAllBands")
+    @GetMapping("/getBands")
     public String displayAllBands(Model model) {
         model.addAttribute("bandsList", service.getAllBands());
         return "getAllBands";

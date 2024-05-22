@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Accueil</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://mistertea.fr/selene/css/style.css">
 </head>
 <body>
     <header>
         <h1>Index</h1>
-        <a href="/displayAllBands">Groupes</a>
+        <a href="/getBands">Groupes</a>
+        <a href="/getScenes">Scenes</a>
     </header>
     <main>
-
+        <h2>Liste des Festivals</h2>
+        <article th:each="festival : ${festivalsList}">
+            <figure>
+                <h3 th:text="${festival.name}"></h3>
+                <p>Liste des scenes du festival</p>
+                <select name="scenes" id="scenes" th:each="scenes : ${festival.scenesList}">
+                    <option th:text="${scenes.name}" th:value="${scenes.name}"></option>
+                </select>
+            </figure>
+        </article>
     </main>
 </body>
 </html>

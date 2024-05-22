@@ -1,13 +1,12 @@
 package com.mistertea.festival.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-// @Getter @Setter @ToString @NoArgsConstructor @AllArgsConstructor // = annotation@Data (lombok)
 @Data
 public class Festival {
     @Id
@@ -15,6 +14,8 @@ public class Festival {
     @Column(name="festival_id")
     private Long id;
 
+
+    @Column(name="festival_name")
     private String name;
 
     // liste scène

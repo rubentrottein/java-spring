@@ -18,6 +18,7 @@ main{
     position: fixed;
     right:1em;
     bottom: 1em;
+    width: 10em;
 }
 #bandList article, .group{
     display: flex;

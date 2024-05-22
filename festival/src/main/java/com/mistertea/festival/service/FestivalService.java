@@ -4,25 +4,26 @@ import com.mistertea.festival.model.Festival;
 import com.mistertea.festival.model.Scene;
 import com.mistertea.festival.repository.FestivalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class FestivalService {
     @Autowired
-    private FestivalRepository festivalRepository;
+    FestivalRepository festivalRepository;
 
-    public boolean addFestival(Festival festival) {
-        festivalRepository.save(festival);
-        return true;
+    public List<Festival> getAllFestivals() {
+        return (List<Festival>) festivalRepository.findAll();
+    }
+
+    public Festival addFestival(Festival festival) {
+        return festivalRepository.save(festival);
     }
 
     public List<Scene> addScene(Festival festival, Scene scene) {
         festival.getScenesList().add(scene);
         return festival.getScenesList();
-    }
-
-    public List<Festival> getAllFestivals() {
-        return (List<Festival>) festivalRepository.findAll();
     }
 
     public Festival getFestivalById(Long id) {
@@ -33,7 +34,7 @@ public class FestivalService {
         }
     }
 
-    public List<Scene> getScenes(Festival festival) {
+    public List<Scene> getFestivalScenes(Festival festival) {
         return festival.getScenesList();
     }
 }

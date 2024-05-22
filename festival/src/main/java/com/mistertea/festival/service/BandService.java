@@ -12,11 +12,11 @@ public class BandService {
     @Autowired
     private BandRepository bandRepository;
 
-    public Band addBand(Band band) {
-        bandRepository.save(band);
-        return band;
-    }
     public List<Band> getAllBands(){
         return (List<Band>) bandRepository.findAll();
+    }
+
+    public Band addBand(Band band) {
+        return bandRepository.save(band);
     }
 }
