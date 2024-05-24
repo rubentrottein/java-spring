@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Profil Utilisateur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Profil</h1>
+        <nav>
+            <a href="/">Retour</a>
+        </nav>
+    </header>
+    <main id="profile">
+
+        <section th:object="${user}">
+
+            <h2>Bienvenue, <span th:text="${user.name}"></span></h2>
+            <ul>
+                <li>Name : <span class="name" th:text="${user.name}"></span></li>
+                <li>Balance : <span class="balance" th:text="${user.balance}"></span></li>
+                <li>Login : <span class="login" th:text="${user.login}"></span></li>
+                <li>Password : <span class="password" th:text="${user.password}"></span></li>
+                <li>ContactsList : <span class="contactsList" th:text="${contactsList}"></span></li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

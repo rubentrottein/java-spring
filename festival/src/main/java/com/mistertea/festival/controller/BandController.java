@@ -2,28 +2,42 @@ package com.mistertea.festival.controller;
 
 import com.mistertea.festival.model.Band;
 import com.mistertea.festival.service.BandService;
+import com.mistertea.festival.service.SceneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 @Controller
 public class BandController {
     @Autowired
-    BandService service = new BandService();
+    BandService bandService = new BandService();
+    //SceneService sceneService = new SceneService();
 
     @GetMapping("/getBands")
     public String displayAllBands(Model model) {
-        model.addAttribute("bandsList", service.getAllBands());
+        model.addAttribute("bandsList", bandService.getAllBands());
+        model.addAttribute("band", new Band());
+       //model.addAttribute("scenesList", sceneService.getAllScenes());
         return "getAllBands";
     }
+
     @PostMapping("/addBand")
-    public String addBand(@RequestBody Band band, Model model){
-        model.addAttribute("band", band);
-        service.addBand(band);
+    public String addBand( Band band, Model model){
+        model.addAttribute("bandsList", bandService.getAllBands());
+        bandService.addBand(band);
         return "getAllBands";
+    }
+
+    @GetMapping("/deleteBand")
+    public String deleteBand(Model model, Long id){
+        bandService.deleteBand(id);
+        return "success";
+    }
+    /* TODO */
+    @PutMapping("/updateBand")
+    public String updateBand(@RequestParam Long id, @PathVariable Band band){
+        bandService.updateBand(id, band);
+        return "/addBand";
     }
 }

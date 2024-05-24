@@ -22,6 +22,16 @@
         #bandList figure{
             min-width: 33%;
         }
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .group{
+            display: flex;
+            justify-content: space-around;
+            padding: 1em;
+        }
     </style>
 </head>
 <body>
@@ -39,13 +49,13 @@
                 <img src="https://picsum.photos/id/168/300/300" alt="Illustration">
                 <figcaption>
                     <h3 th:text="${band.name}"></h3>
-                    <p>Lorem Ipsum Dolor Sit Amet</p>
+                    <!--<p th:text="${band.scene}"></p>-->
                     <div class="group">
-                        <form method="GET" action="${/updateBand}">
-                            <button th:value="${band.id}" >Modifier</button>
+                        <form method="post" th:action="@{/updateBand}">
+                            <button th:value="${band}" >Modifier ✍🏻</button>
                         </form>
-                        <form method="GET" action="${/deleteBand}">
-                            <button th:value="${band.id}" >Supprimer</button>
+                        <form method="get" th:action="@{/deleteBand}">
+                            <button th:value="${band.id}"  name="id">Supprimer ❌</button>
                         </form>
                     </div>
                 </figcaption>
@@ -54,14 +64,20 @@
     </section>
     <!----
     <section>
-        <fieldset>
-            <summary><h2>Add Band</h2></summary>
-            <form action="@{/addBand}" method="POST" th:object="${band}">
-                <label for="nom">Nom du groupe</label>
+        <h2>Add Band</h2>
+            <form th:action="@{/addBand}" th:object="${band}" method="post">
+                <label for="nom">Nom du Groupe</label>
+                <input type="text" th:field="*{name}" id="nom">
+
+                <label>
+                    <p>Scène du groupe</p>
+                    <select th:each="scene : ${scenesList}">
+                        <option th:text="${scene.name}" th:field="*{scene}"></option>
+                    </select>
+                </label>
                 <input type="text" th:field="*{name}" id="nom">
                 <input type="submit" value="Ajout d'un groupe">
             </form>
-        </fieldset>
     </section>
     <!---->
 <audio autoplay src="https://mistertea.fr/selene/bgm/miles-davis-blue-in-green-1959.mp3"></audio>

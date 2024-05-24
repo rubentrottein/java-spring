@@ -1,0 +1,71 @@
+:root{
+    --primary: royalblue;
+    --secondary:aliceblue;
+    --tertiary : seagreen;
+    --special : rebeccapurple;
+    --link-color: gold;
+    --warning: orangered;
+    --danger: crimson;
+}
+*{
+    box-sizing: border-box;
+    font-family: "Trebuchet MS", Arial, monospace;
+    margin:0;
+    scroll-behavior: smooth;
+}
+a{
+    color: var(--link-color);
+    text-decoration : none;
+
+}
+body{
+    background: url("https://picsum.photos/1980/1280")fixed;
+    background-size: cover;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    background: black;
+}
+h1{
+    font-size: 2em;
+    font-weight: 1;
+    color: gold;
+}
+section{
+    background: rgba(0,0,0,.5);
+    backdrop-filter: blur(15px);
+    color:var(--secondary);
+    border: 1px solid var(--link-color);
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--link-color);
+    width: 50%;
+    margin: 3em auto;
+    padding: 1em;
+    min-height: 80dvh;
+}
+body:has(#home) header{
+    background: transparent;
+}
+#home{
+    display: grid;
+    place-content: center;
+    min-height: 80dvh;
+    background:
+            rgba();
+}
+#home [type=button]{
+    background: var(--tertiary);
+    color: var(--secondary);
+    padding: 1em;
+    border:none;
+    border-radius: 10px;
+}
+
+#profile span{font-weight: bolder;}
+.name{ color: var(--primary);}
+.balance{ color: var(--link-color);}
+.login{ color: var(--tertiary);}
+.password{ color: var(--tertiary);}
+.contactsList{ color: var(--special);}
