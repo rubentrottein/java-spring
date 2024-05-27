@@ -12,6 +12,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
 
     private float balance;
@@ -24,7 +25,9 @@ public class User {
 
     @OneToMany(mappedBy="sender")
     private ArrayList<Transaction> transactionList;
+    public User(){
 
+    }
     public User(String name, float balance, String iban, String email, String password, ArrayList<User> contactsList, ArrayList<Transaction> transactionList) {
     //TODO effacer le contrôleur une fois les User persistants
     }

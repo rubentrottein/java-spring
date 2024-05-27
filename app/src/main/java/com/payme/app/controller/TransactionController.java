@@ -14,10 +14,5 @@ public class TransactionController {
         model.addAttribute("title", "Transactions");
         return "operations";
     }
-    @GetMapping("/supplies")
-    public String supplies(Model model) {
-        model.addAttribute("supply", new Supply());
-        model.addAttribute("title", "Approvisionnement du compte");
-        return "operations";
-    }
+
 }

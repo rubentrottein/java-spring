@@ -1,19 +1,26 @@
 package com.payme.app.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.sql.Date;
 
 @Entity
 @Data
 
-public class Supply extends Operation{
-
+public class Supply{
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    Long Id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    private User user;
+
+    private Date date;
+
+    private float amount;
+
+    private String label;
 
 }
