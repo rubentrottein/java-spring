@@ -2,7 +2,11 @@
     --primary: royalblue;
     --secondary:aliceblue;
     --tertiary : seagreen;
+    --tertiary-subtle : springgreen;
+    /*
     --special : rebeccapurple;
+    */
+    --special : lime;
     --link-color: gold;
     --warning: orangered;
     --danger: crimson;
@@ -20,13 +24,24 @@ a{
 }
 body{
     background: url("https://picsum.photos/1980/1280")fixed;
+    border-image : fill 1 radial-gradient(rgba(0,0,0,.5), rgba(0,0,0,.3));
     background-size: cover;
+    min-height: 100dvh;
 }
 header{
     display: flex;
     justify-content: space-between;
     padding: 1em;
     background: black;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+}
+nav a{
+    color: var(--tertiary-subtle);
 }
 h1{
     font-size: 2em;
@@ -52,8 +67,6 @@ body:has(#home) header{
     display: grid;
     place-content: center;
     min-height: 80dvh;
-    background:
-            rgba();
 }
 #home [type=button]{
     background: var(--tertiary);
@@ -63,9 +76,60 @@ body:has(#home) header{
     border-radius: 10px;
 }
 
+#selector{
+    width: 40vw; min-height: 40dvh;
+}
+
+#selector article{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 30dvh;
+    gap: 1em;
+}
+#selector a{
+    width: 20%;
+    height: 10dvh;
+    display:grid;
+    align-content: center;
+    text-align: center;
+}
+#selector h2{
+    text-align:center;
+    margin-top: 2.5em;
+}
+
 #profile span{font-weight: bolder;}
 .name{ color: var(--primary);}
 .balance{ color: var(--link-color);}
 .login{ color: var(--tertiary);}
 .password{ color: var(--tertiary);}
 .contactsList{ color: var(--special);}
+
+#operations article{
+    display: flex;
+    justify-content: space-around;
+    margin: 2em auto;
+    gap: 2em;
+}
+#operations figure{
+    border-image : fill 1 linear-gradient(rgba(0,0,0,.3), rgba(0,50,0,.3));
+    width: 20vw;
+    height: 30vh;
+    padding: 1em;
+    background: url("https://picsum.photos/id/8/500/400");
+    background-size: cover;
+    border-radius: 10px;
+}
+
+footer{
+    padding: 1em;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    background: black;
+    color: var(--link-color);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
