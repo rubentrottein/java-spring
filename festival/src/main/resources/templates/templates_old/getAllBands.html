@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Scenes</title>
+    <title>Title</title>
     <!--
-        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     -->
     <link rel="stylesheet" href="https://mistertea.fr/selene/css/style.css">
     <style>
@@ -14,45 +14,37 @@
             bottom: 1em;
             width: 10em;
         }
-        #scenesList article{
-            display: flex;
-            justify-content: space-between;
-            gap: 1em;
-        }
-        #bandList figure{
-            min-width: 33%;
-        }
     </style>
 </head>
 <body>
 <header>
-    <h1>Scènes</h1>
+    <h1>Liste des Groupes</h1>
     <nav>
         <a href="/">Retour</a>
     </nav>
 </header>
 <main>
-    <section id="scenesList">
-        <h2>Liste des Scènes</h2>
-        <article th:each="scene : ${scenes}">
+    <section id="bandList">
+        <h2>Liste des groupes</h2>
+        <article th:each="band : ${bandsList}">
             <figure>
-                <img src="https://picsum.photos/id/174/300/300" alt="Illustration">
+                <img src="https://picsum.photos/id/13/300/300" alt="">
                 <figcaption>
-                    <h3 th:text="${scene.name}"></h3>
+                    <h3 th:text="${band.name}"></h3>
                     <p>Lorem Ipsum Dolor Sit Amet</p>
                     <div class="group">
                         <form method="GET" action="${/updateBand}">
-                            <button th:value="${scene.id}" >Modifier</button>
+                            <button th:value="${band.id}" >Modifier</button>
                         </form>
                         <form method="GET" action="${/deleteBand}">
-                            <button th:value="${scene.id}" >Supprimer</button>
+                            <button th:value="${band.id}" >Supprimer</button>
                         </form>
                     </div>
                 </figcaption>
             </figure>
         </article>
     </section>
-    <!---->
+    <!----
     <section>
         <fieldset>
             <summary><h2>Add Band</h2></summary>
@@ -64,8 +56,8 @@
         </fieldset>
     </section>
     <!---->
-<audio autoplay src="https://mistertea.fr/selene/bgm/miles-davis-blue-in-green-1959.mp3"></audio>
 </main>
-<img id="couverdure" src="https://mistertea.fr/selene/img/couverdure.png" width=200 />
+<audio autoplay src="https://mistertea.fr/selene/bgm/miles-davis-blue-in-green-1959.mp3"></audio>
+<img id="couverdure" src="https://mistertea.fr/selene/img/couverdure.png" />
 </body>
 </html>

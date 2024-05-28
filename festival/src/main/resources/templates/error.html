@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>$Title$</title>
-  <link rel="stylesheet" href="https://mistertea.fr/selene/css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -14,8 +14,12 @@
       <a href="/getAllScenes">Scenes</a>
     </nav>
   </header>
-<main>
-  <p th:text="${trace}"></p>
-</main>
+  <main>
+    <section>
+      <h2>Détails de l'erreur</h2>
+      <p th:text="${trace}" style="word-break: break-word; line-height:1.5em;"></p>
+    </section>
+    <img src="https://mistertea.fr/selene/img/lucifurr.gif" />
+  </main>
 </body>
 </html>

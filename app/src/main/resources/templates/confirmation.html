@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-$END$
+    <header>
+        <h1 th:text="${msg}"></h1>
+        <nav>
+            <a href="/profile">Profil</a>
+            <a href="/transactions">Virement à un compte Payme</a>
+            <a href="/supply">Approvisionnement du compte</a>
+            <a href="/logout">Déconnexion</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <p  th:text="${trace}"></p>
+            <a href='/'>Retour à l'accueil</a>
+        </section>
+    </main>
 </body>
 </html>

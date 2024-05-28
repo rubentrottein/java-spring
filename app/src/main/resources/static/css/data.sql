@@ -1,0 +1,3 @@
+INSERT INTO `user` (`balance`, `id`, `email`, `iban`, `name`, `password`) VALUES ('3000', NULL, 'user@mail.net', 'FRXX XXXX XXXX CC', 'user', 'user'), ('5000', NULL, 'user2@mail.net', 'FRXX ZZZZ ZZZZ CC', 'user2', 'user2');
+
+INSERT INTO `supply` (`amount`, `date`, `id`, `user_id`, `label`) VALUES ('250', '2024-05-26', NULL, '4', 'Création de compte'), ('750', '2024-05-23', NULL, '4', 'Création de compte');

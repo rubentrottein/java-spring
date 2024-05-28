@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+  <html lang="fr">
+  <head>
+      <meta charset="UTF-8">
+      <title>Header</title>
+  </head>
+  <body>
+
+    <header th:fragment="header">
+      <h1 th:text="${title}"></h1>
+      <nav>
+        <a href="/profile">Profil</a>
+        <a href="/transactions">Transaction</a>
+        <a href="/supply">Virement</a>
+        <a href="/logout">Déconnexion</a>
+      </nav>
+    </header>
+  </body>

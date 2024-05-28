@@ -2,20 +2,79 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Profil Utilisateur</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Opérations sur le compte</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-    <h1>Profil</h1>
-    <nav>
-        <a href="/">Retour</a>
-    </nav>
-</header>
-<main id="Operations">
-    <section>
-        <h2 th:text="${title}"></h2>
+<div th:replace="fragments/header :: header">
+    <header>
+        <h1 th:text="${title}">Profil</h1>
+        <nav>
+            <a href="/profile">Profil</a>
+            <a href="/transactions">Virement à un compte Payme</a>
+            <a href="/supply">Approvisionnement du compte</a>
+            <a href="/logout">Déconnexion</a>
+        </nav>
+    </header>
+</div>
+<main id="operations">
+    <section th:if="${title}=='Transactions'">
+        <h2>Résumé de l'opération</h2>
+        <article>
+            <figure>
+                <i>💲-></i>
+                <figcaption>
+                    <h3>Compte émetteur</h3>
+                    <p>Nom du compte : <span th:text="${user.name}"></span></p>
+                    <p>Solde du compte : <span th:text="${user.balance}"></span> €</p>
+                </figcaption>
+            </figure>
+            <figure>
+                <i>&lt;-💲</i>
+                <figcaption>
+                    <h3>Compte destinataire</h3>
+                    <select th:each="contact: ${contactList}">
+                        <option th:text="${contact.name}"></option>
+                    </select>
+                </figcaption>
+            </figure>
+        </article>
     </section>
+    <section>
+        <form th:action="@{/supply}" th:object="${supply}" method="post" th:if="${title}=='Approvisionnement du compte'">
+            <label for="label">
+                <p>Libéllé de l'opération</p>
+                <input type="text" name="label" id="label">
+            </label>
+            <label for="amount">
+                <p>Montant à transférer</p>
+                <input type="text" name="amount" id="amount">
+            </label>
+            <label th:if="${title}=='Transactions'">
+                <p>Compte du destinataire</p>
+                <input type="text" name="label" id="label">
+            </label>
+            <input type="submit" value="Ajouter un approvisionnement">
+        </form>
+    </section>
+    <!--
+        <section>
+            <h2>Affichage des opérations</h2>
+            <table>
+                <thead>
+                <th>Label</th>
+                <th>Amount</th>
+                </thead>
+                <tbody>
+                <tr th:each="operation : ${list}">
+                    <td th:text = "*{operation.label}"></td>
+                    <td th:text = "*{operation.amount}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    -->
 </main>
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

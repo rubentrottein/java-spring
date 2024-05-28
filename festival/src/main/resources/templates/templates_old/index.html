@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!----
+    <link rel="stylesheet" href="style.css" />
+    -->
+    <link rel="stylesheet" href="https://mistertea.fr/selene/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Index</h1>
+        <nav>
+            <a href="/showFestivals">Festivals</a>
+            <a href="/displayAllBands">Groupes</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Informations du festival</h2>
+            <div th:each="festival : ${festivalsList}">
+                <p th:text="${festival.name}"></p>
+                <!--
+                <ul th:each="scene : ${scenesList}">
+                    <li th:text="${scene.name}"></li>
+                </ul>
+                -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <details open>
+            <summary>Créer un festival</summary>
+            <!-- DONE --
+            <form th:action="@{/createFestival}" method="post" th:object="${newFestival}">
+                <label for="name">Nom du festival</label>
+                <input type="text" name="name" th:field="*{newFestival.name}" id="name">
+                <input type="submit" value="Creer le Festival">
+            </form>
+            <!---->
+        </details>
+    </footer>
+</body>
+</html>
