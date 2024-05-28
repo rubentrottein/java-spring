@@ -69,3 +69,15 @@ body:has(#home) header{
 .login{ color: var(--tertiary);}
 .password{ color: var(--tertiary);}
 .contactsList{ color: var(--special);}
+
+table{
+    margin: 2em auto;
+    width: 90%;
+}
+table tr:nth-child(even), thead{
+    background: rgba(150,150,0,.6);
+}
+td,th{
+    text-align: center;
+    padding: .5em;
+}

@@ -15,15 +15,48 @@
 <main id="Operations">
     <section>
         <h2 th:text="${title}"></h2>
+
+        <form th:action="@{/supply}" th:object="${supply}" method="post" th:if="${title}=='Approvisionnement du compte'">
+            <label for="label">
+                <p>Libéllé de l'opération</p>
+                <input type="text" name="label" id="label">
+            </label>
+            <label for="amount">
+                <p>Montant à transférer</p>
+                <input type="text" name="amount" id="amount">
+            </label>
+            <label th:if="${title}=='Transactions'">
+                <p>Compte du destinataire</p>
+                <input type="text" name="label" id="label">
+            </label>
+            <input type="submit" value="Ajouter un approvisionnement">
+        </form>
+
+        <form th:action="@{/addSupply}" th:object="${supply}" method="post" th:if="${title}=='Transactions'">
+            <label for="label">
+                <p>Libéllé de l'opération</p>
+                <input type="text" name="label" id="label">
+            </label>
+            <label for="amount">
+                <p>Montant à transférer</p>
+                <input type="text" name="amount" id="amount">
+            </label>
+            <label>
+                <p>Compte du destinataire</p>
+                <input type="text" name="label" id="label">
+            </label>
+        </form>
+    </section>
+    <section>
         <table>
             <thead>
                 <th>Label</th>
                 <th>Amount</th>
             </thead>
             <tbody>
-                <tr th:each="approvisionnement : ${supplyList}">
-                    <td th:text = "${approvisionnement.label}"></td>
-                    <td th:text = "${approvisionnement.amount}"></td>
+                <tr th:each="operation : ${list}">
+                    <td th:text = "*{operation.label}"></td>
+                    <td th:text = "*{operation.amount}"></td>
                 </tr>
             </tbody>
 

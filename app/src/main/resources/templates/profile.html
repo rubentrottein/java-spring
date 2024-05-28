@@ -20,9 +20,14 @@
             <ul>
                 <li>Name : <span class="name" th:text="${user.name}"></span></li>
                 <li>Balance : <span class="balance" th:text="${user.balance}"></span></li>
-                <li>Login : <span class="login" th:text="${user.login}"></span></li>
+                <li>Login : <span class="login" th:text="${user.email}"></span></li>
                 <li>Password : <span class="password" th:text="${user.password}"></span></li>
-                <li>ContactsList : <span class="contactsList" th:text="${contactsList}"></span></li>
+                <li>ContactsList : <ul class="contactsList" th:each="contact : ${contactsList}">
+                    <li th:text="*{id}"></li>
+                    <li th:text="*{name}"></li>
+                </ul></li>
+                <!--
+                -->
             </ul>
         </section>
     </main>
