@@ -12,7 +12,9 @@
         <a href="/profile">Profil</a>
         <a href="/transactions">Transaction</a>
         <a href="/supply">Virement</a>
-        <a href="/logout">Déconnexion</a>
+        <form th:action="@{/logout}" method="post">
+          <button type="submit">Déconnexion</button>
+        </form>
       </nav>
     </header>
   </body>

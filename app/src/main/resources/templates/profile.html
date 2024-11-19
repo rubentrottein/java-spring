@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Profil Utilisateur</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
     <header th:replace="~{fragments/header :: header}">
@@ -12,47 +13,49 @@
             <a href="/profile">Profil</a>
             <a href="/transactions">Virement à un compte Payme</a>
             <a href="/supply">Approvisionnement du compte</a>
-            <a href="/logout">Déconnexion</a>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit">Déconnexion</button>
+            </form>
+
         </nav>
     </header>
     <main id="profile">
-    <!--
-        <section>
-            <p th:text="${username}"></p>
-        </section>
-    -->
         <section th:object="${user}">
 
-            <h2>Bienvenue, <span th:text="${user.name}"></span></h2>
+            <h2>Bienvenue sur votre profil, <span th:text="${user.name}"></span></h2>
             <ul>
-                <li>Name : <span class="name" th:text="${user.name}"></span></li>
-                <li>Balance : <span class="balance" th:text="${user.balance}"></span></li>
-                <li>Login : <span class="login" th:text="${user.email}"></span></li>
-                <li>Password : <span class="password" th:text="${user.password}"></span></li>
-                <li>ContactsList :
-                    <ul class="contactsList" th:each="contact : ${contactsList}">
-                        <li> #<span th:text="*{id}"> </span> : <span th:text="*{name}"></span></li>
+                <li><h3>Name</h3> <span class="name" th:text="${user.name}"></span></li>
+                <li><h3>Balance</h3> <span class="balance" th:text="${user.balance}"></span></li>
+                <li><h3>Login</h3> <span class="login" th:text="${user.email}"></span></li>
+                <li><h3>Password</h3> <input type="password" class="password" value="${user.password}"></li>
+                <li><h3>Contacts Payme</h3>
+                    <ul class="contactsList" th:if="${!contactsList.isEmpty()}" th:each="contact : ${contactsList}">
+                        <li>#<span th:text="${contact.id}"> </span> : <span th:text="${contact.name}"></span></li>
                     </ul>
+                    <p th:if="${contactsList.isEmpty()}">Pas de contacts</p>
                 </li>
 
-                <li>TransactionList :
-                    <ul class="transactionList" th:each="transaction : ${transactionList}">
-                        <li th:text="*{id}"></li>
-                        <li th:text="*{name}"></li>
-                    </ul>
+                <li><h3>Liste des transactions</h3>
+                    <ol class="transactionList" th:if="${!transactionList.isEmpty()}" th:each="transaction : ${transactionList}">
+                        <li>
+                            <span th:text="${transaction.label}"></span> :
+                            <span th:text="${transaction.amount}"></span>€
+                        </li>
+                    </ol>
+                    <p th:if="${transactionList.isEmpty()}">Aucune transaction sur le compte</p>
                 </li>
 
-                <li>supplyList :
-                    <!---->
-                    <ul class="supplyList" th:each="supply : ${supplyList}">
-                        <li th:text="*{supply.label}"></li>
-                        <li th:text="*{supply.amount}"></li>
-                    </ul>
-                    <!---->
+                <li><h3>Liste des Approvisionnements</h3>
+                    <ol class="supplyList" th:if="${!supplyList.isEmpty()}" th:each="supply : ${supplyList}">
+                        <li>
+                            <span th:text="${supply.label}"></span> :
+                            <span th:text="${supply.amount}"></span>€
+                        </li>
+                    </ol>
+                    <p th:if="${supplyList.isEmpty()}">Le compte n'a pas encore été approvisionné</p>
                 </li>
             </ul>
         </section>
-    <!---->
     </main>
     <footer th:replace="fragments/footer :: footer"></footer>
 </body>

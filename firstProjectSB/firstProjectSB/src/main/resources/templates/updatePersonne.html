@@ -1,8 +1,0 @@
-<form th:action="@{/updatePersonne}" th:object="${personneToUpdate}" method="post">
-	
-	<input type="text" th:field="*{id}" id="id" hidden>
-	<input type="text" th:field="*{nom}" id="nom">
-	<input type="text" th:field="*{prenom}" id="prenom">
-	<input type="text" th:field="*{birthday}" id="birthday">
-	<input type="submit" value="Update personne">
-</form>	

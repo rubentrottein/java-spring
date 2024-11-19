@@ -3,9 +3,6 @@
     --secondary:aliceblue;
     --tertiary : seagreen;
     --tertiary-subtle : springgreen;
-    /*
-    --special : rebeccapurple;
-    */
     --special : lime;
     --link-color: gold;
     --warning: orangered;
@@ -31,14 +28,15 @@ body{
 header{
     display: flex;
     justify-content: space-between;
-    padding: 1em;
+    padding: .5em;
     background: black;
 }
 nav{
     display: flex;
     justify-content: space-between;
+    gap: 1em;
     align-items: center;
-    width: 30%;
+    min-width: 30%;
 }
 nav a{
     color: var(--tertiary-subtle);
@@ -46,7 +44,7 @@ nav a{
 h1{
     font-size: 2em;
     font-weight: 1;
-    color: gold;
+    color: var(--link-color);
 }
 section{
     background: rgba(0,0,0,.5);
@@ -56,9 +54,12 @@ section{
     border-radius: 10px;
     box-shadow: 0 0 15px var(--link-color);
     width: 50%;
-    margin: 3em auto;
+    margin: 1em auto;
     padding: 1em;
-    min-height: 80dvh;
+}
+label{
+    display: block;
+    margin: 1em auto;
 }
 body:has(#home) header{
     background: transparent;
@@ -76,6 +77,15 @@ body:has(#home) header{
     border-radius: 10px;
 }
 
+button, [type=button], [type=submit]{
+    padding: 1em;
+    display: block;
+    color: var(--link-color);
+    border: var(--link-color) solid 3px;
+    margin: 1em auto;
+    background: none;
+}
+
 #selector{
     width: 40vw; min-height: 40dvh;
 }
@@ -84,7 +94,6 @@ body:has(#home) header{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 30dvh;
     gap: 1em;
 }
 #selector a{
@@ -99,7 +108,6 @@ body:has(#home) header{
     margin-top: 2.5em;
 }
 
-#profile span{font-weight: bolder;}
 .name{ color: var(--primary);}
 .balance{ color: var(--link-color);}
 .login{ color: var(--tertiary);}
@@ -108,20 +116,42 @@ body:has(#home) header{
 
 #operations article{
     display: flex;
-    justify-content: space-around;
-    margin: 2em auto;
+    justify-content: space-between;
+    margin: 1em auto;
     gap: 2em;
+}
+tr td:last-child{
+    text-align: right;
 }
 #operations figure{
     border-image : fill 1 linear-gradient(rgba(0,0,0,.3), rgba(0,50,0,.3));
     width: 20vw;
-    height: 30vh;
+    min-height: 30vh;
     padding: 1em;
-    background: url("https://picsum.photos/id/8/500/400");
     background-size: cover;
     border-radius: 10px;
+    display: grid;
+    place-content: center;
+    backdrop-filter: blur(10px);
+    text-shadow: 0 0 1px black;
 }
-
+.supplySection article{
+    width: 20vw;
+    border-radius: 10px;
+    background: url("https://picsum.photos/id/6/800/600");
+    background-size: contain;
+}
+.supplySection figure{
+    margin: auto;
+    text-align: center;
+    backdrop-filter: blur(1px);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.supplySection span{
+    font-size: 3em;
+}
 footer{
     padding: 1em;
     text-align: center;
@@ -132,4 +162,14 @@ footer{
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+.form-container{
+    width: 100%;
+    min-width: 50dvw;
+    margin: auto;
+}
+.form-container input{display: block;}
+.form-container form{
+    display: grid;
+    place-items: center;
 }

@@ -1,6 +1,5 @@
 package com.payme.app.controller;
 
-import com.payme.app.model.Supply;
 import com.payme.app.model.User;
 import com.payme.app.service.SupplyService;
 import com.payme.app.service.UserService;
@@ -23,29 +22,28 @@ public class UserController {
 
     @GetMapping("/profile")
     public String profile(Model model) {
-        String userName = SecurityContextHolder.getContext().getAuthentication().getName();
 
-        User user = userService.getUserByName(userName);
+        User user = userService.getUserByName(userService.getCurrentUser().getUsername());
 
         model.addAttribute("title", "Profil de l'utilisateur");
-        model.addAttribute("username", userName);
+        model.addAttribute("username", user.getUsername());
         model.addAttribute("user", user);
 
-        user.setSupplyList(supplyService.getSupplyListByUserName(userName));
+        user.setSupplyList(supplyService.getSupplyListByUserName(user.getUsername()));
 
         if (user.getContactList().isEmpty()) {
-            model.addAttribute("contactsList","Liste des contacts");
+            model.addAttribute("contactsList","");
         } else {
             model.addAttribute
             ("contactsList", user.getContactList());
         }
         if (user.getTransactionList().isEmpty()) {
-            model.addAttribute("transactionList","Liste des Transactions");
+            model.addAttribute("transactionList","");
         } else {
             model.addAttribute("transactionList", user.getTransactionList());
         }
         if (user.getSupplyList().isEmpty()) {
-            model.addAttribute("supplyList","Liste des Approvisionnements");
+            model.addAttribute("supplyList","");
         } else {
             model.addAttribute("supplyList", user.getSupplyList());
         }

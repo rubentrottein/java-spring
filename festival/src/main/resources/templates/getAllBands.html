@@ -3,36 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Groupes</title>
-    <!--
-        <link rel="stylesheet" href="style.css">
-    -->
-    <link rel="stylesheet" href="https://mistertea.fr/selene/css/style.css">
-    <style>
-        #couverdure{
-            position: fixed;
-            right:1em;
-            bottom: 1em;
-            width: 10em;
-        }
-        #bandList article{
-            display: flex;
-            justify-content: space-between;
-            gap: 1em;
-        }
-        #bandList figure{
-            min-width: 33%;
-        }
-        form{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .group{
-            display: flex;
-            justify-content: space-around;
-            padding: 1em;
-        }
-    </style>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <header>
@@ -44,8 +15,8 @@
 <main>
     <section id="bandList">
         <h2>Liste des groupes</h2>
-        <article th:each="band : ${bandsList}">
-            <figure>
+        <article class="group">
+            <figure th:each="band : ${bandsList}">
                 <img src="https://picsum.photos/id/168/300/300" alt="Illustration">
                 <figcaption>
                     <h3 th:text="${band.name}"></h3>
@@ -64,7 +35,7 @@
     </section>
     <!---->
     <section>
-        <h2>Add Band</h2>
+        <h2>Ajouter un groupe au festival</h2>
             <form th:action="@{/addBand}" th:object="${band}" method="post">
                 <label for="nom">Nom du Groupe</label>
                 <input type="text" th:field="*{name}" id="nom">

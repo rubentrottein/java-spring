@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.FirstProject.model.Person;
 import com.example.FirstProject.service.FirstService;
 import com.example.FirstProject.service.PersonService;
+
+import java.time.LocalDate;
 
 
 @Controller
@@ -42,21 +42,29 @@ public class FirstThymeLeafController {
         model.addAttribute("id" ,service.findPerson(id).get());
         return "list";
     }
-    @PostMapping("/addUser")
-    public String addUser(Person person, BindingResult result, Model model) {
-        model.addAttribute("user", person);
-        service.addPerson(person);
-        return "addUser";
+
+    @GetMapping("/addUser")
+    public String addUser(Model model) {
+        model.addAttribute("user", new Person()); // Initialiser un objet pour le formulaire
+        return "addUser"; // Retourne le nom du template
     }
+
+    @PostMapping("/addUser")
+    public String addUser(@ModelAttribute Person person, Model model) {
+        service.addPerson(person); // Appel du service pour traiter les données
+        model.addAttribute("user", person);
+        return "list"; // Rediriger vers une page de confirmation ou autre
+    }
+
     @PostMapping("/updateUser")
-    public String addUser(Person person, Model model) {
+    public String updateUser(Person person, Model model) {
         model.addAttribute("userToUpdate", person);
         service.updatePerson(person.getId(), person);
         return "updateUser";
     }
 
     @GetMapping("/imgSrc")
-    public String addUser(Model model) {
+    public String chgImgSource(Model model) {
         model.addAttribute("img", firstService.addImg(131));
         return "index";
     }

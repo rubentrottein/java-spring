@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Accueil</title>
-    <link rel="stylesheet" href="../static/style.css" />
-    <link rel="stylesheet" href="https://mistertea.fr/selene/css/style.css">
-</head>
-<body style="background: url('https://picsum.com/photos/id/172/1980/1280')fixed; background-size: cover;">
-    <header>
-        <h1>Index</h1>
-        <a href="/getBands">Groupes</a>
-        <a href="/getScenes">Scenes</a>
-    </header>
-    <main>
-        <h2>Liste des Festivals</h2>
-        <article th:each="festival : ${festivalsList}">
-            <figure>
-                <h3 th:text="${festival.name}"></h3>
-                <p>Liste des scenes du festival</p>
-                <select name="scenes" id="scenes" th:each="scenes : ${festival.scenesList}">
-                    <option th:text="${scenes.name}" th:value="${scenes.name}"></option>
-                </select>
-            </figure>
-        </article>
-    </main>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Accueil</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Index</h1>
+            <a href="/getBands">Groupes</a>
+            <a href="/getScenes">Scenes</a>
+        </header>
+        <main>
+            <h2>Liste des Festivals</h2>
+            <article th:each="festival : ${festivalsList}" class="group">
+                <figure>
+                    <h3 th:text="${festival.name}"></h3>
+                    <p>Liste des scenes du festival</p>
+                    <select name="scenes" id="scenes" th:each="scenes : ${festival.scenesList}">
+                        <option th:text="${scenes.name}" th:value="${scenes.name}"></option>
+                    </select>
+                </figure>
+            </article>
+        </main>
+    </body>
 </html>

@@ -19,7 +19,7 @@ public class FirstController {
 		return service.style() + "<header style='background: black; color: seagreen; font-family: 'Arial'; font-weight: 100'>"
 				+ "<h1>Site Java Spring !</h1>"
 				+ "<nav style='display:flex; justify-content: space-around; width: 50%;'>"
-				+ "<a href='/hello?name'=" + name + ">Poursuivre en tant que " + name + "</a> "
+				+ "<a href='/hello?name=" + name + ">Poursuivre en tant que " + name + "</a> "
 				+ "<a href='/addUser'>addPerson</a>"
 				+ "<a href='/list'>getAllPerson</a>"
 				+ "<a href='/index'>About</a>"

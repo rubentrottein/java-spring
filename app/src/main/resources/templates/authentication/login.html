@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Payme.com</h1>
+    </header>
+    <main id="home">
+        <section class="form-container">
+            <h2>Login</h2>
+
+            <!-- Message d'erreur -->
+            <div th:if="${errorMessage}" class="error">
+                <p th:text="${errorMessage}"></p>
+            </div>
+
+            <!-- Message de déconnexion -->
+            <div th:if="${successMessage}" class="success">
+                <p th:text="${successMessage}"></p>
+            </div>
+            <form th:action="@{/login}" method="post">
+                <label for="username">Nom d'utilisateur
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </label>
+                <label for="password">Mot de passe
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </label>
+                <button type="submit">Connexion</button>
+            </form>
+
+            <a href="/register">Créer un nouveau compte</a>
+        </section>
+    </main>
+</body>
+</html>

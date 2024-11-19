@@ -40,40 +40,88 @@
             </figure>
         </article>
     </section>
-    <section>
-        <form th:action="@{/supply}" th:object="${supply}" method="post" th:if="${title}=='Approvisionnement du compte'">
-            <label for="label">
-                <p>Libéllé de l'opération</p>
-                <input type="text" name="label" id="label">
-            </label>
-            <label for="amount">
-                <p>Montant à transférer</p>
-                <input type="text" name="amount" id="amount">
-            </label>
-            <label th:if="${title}=='Transactions'">
-                <p>Compte du destinataire</p>
-                <input type="text" name="label" id="label">
-            </label>
-            <input type="submit" value="Ajouter un approvisionnement">
-        </form>
+    <section th:if="${title}=='Approvisionnement du compte'" class="supplySection">
+        <h2>Résumé de l'opération</h2>
+        <article>
+            <figure>
+                <figcaption>
+                    <h3>Mon Solde</h3>
+                    <p><span th:text="${user.balance}"></span>€</p>
+                </figcaption>
+            </figure>
+        </article>
     </section>
-    <!--
-        <section>
-            <h2>Affichage des opérations</h2>
-            <table>
-                <thead>
-                <th>Label</th>
-                <th>Amount</th>
-                </thead>
-                <tbody>
-                <tr th:each="operation : ${list}">
-                    <td th:text = "*{operation.label}"></td>
-                    <td th:text = "*{operation.amount}"></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    -->
+    <section>
+        <h2>Créer une nouvelle opération</h2>
+        <article>
+            <form th:action="@{/supply}" th:object="${supply}" method="post" th:if="${title}=='Approvisionnement du compte'">
+                <label for="label">
+                    Libéllé de l'opération
+                    <input type="text" name="label" id="label">
+                </label>
+                <label for="amount">
+                    Montant à transférer
+                    <input type="text" name="amount" id="amount">
+                </label>
+                <label th:if="${title}=='Transactions'">
+                    Compte du destinataire
+                    <select th:each="contact: ${contactList}">
+                        <option th:text="${contact.name}"></option>
+                    </select>
+                </label>
+                <input type="submit" value="Ajouter un approvisionnement">
+            </form>
+            <form th:action="@{/transaction}" th:object="${transaction}" method="post" th:if="${title}=='Transactions'">
+                <label for="label">
+                    Libéllé de l'opération
+                    <input type="text" name="label" id="transactionLabel">
+                </label>
+                <label for="amount">
+                    Montant à transférer
+                    <input type="text" name="amount" id="transactionAmount">
+                </label>
+                <label th:if="${title}=='Transactions'">
+                    Compte du destinataire
+                    <select th:each="contact: ${contactList}">
+                        <option th:text="${contact.name}"></option>
+                    </select>
+                </label>
+                <input type="submit" value="Ajouter une transaction">
+            </form>
+            <aside th:if="${title}=='Approvisionnement du compte'">
+                <h2>Affichage des derniers approvisionnements</h2>
+                <table>
+                    <thead>
+                        <th>Label</th>
+                        <th>Amount</th>
+                    </thead>
+                    <tbody>
+                        <tr th:each="supply : ${supplyList}">
+                            <td th:text = "*{supply.label}"></td>
+                            <td th:text = "*{supply.amount}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </aside>
+            <aside th:if="${title}=='Transactions'">
+                <h2>Affichage des dernières transactions</h2>
+                <table>
+                    <thead>
+                    <th>Label</th>
+                    <th>Amount</th>
+                    </thead>
+                    <tbody>
+                    <tr th:each="operation : ${list}">
+                        <td th:text = "*{operation.label}"></td>
+                        <td th:text = "*{operation.amount}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </aside>
+        </article>
+    </section>
+    <!---->
+    <!---->
 </main>
 <div th:replace="fragments/footer :: footer"></div>
 </body>
